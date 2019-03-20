@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grades", "Grades\Grades.csproj", "{C619FF42-23E9-450B-A7A5-106EF843F4CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grades.Tests", "Grades.Tests\Grades.Tests.csproj", "{D35FAEBC-F122-4A1E-9953-FBC565A41F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grades", "ConsoleApp1\Grades.csproj", "{49303F21-B0B6-464A-9D86-9D4422284928}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C619FF42-23E9-450B-A7A5-106EF843F4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C619FF42-23E9-450B-A7A5-106EF843F4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C619FF42-23E9-450B-A7A5-106EF843F4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C619FF42-23E9-450B-A7A5-106EF843F4CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D35FAEBC-F122-4A1E-9953-FBC565A41F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35FAEBC-F122-4A1E-9953-FBC565A41F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35FAEBC-F122-4A1E-9953-FBC565A41F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35FAEBC-F122-4A1E-9953-FBC565A41F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49303F21-B0B6-464A-9D86-9D4422284928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49303F21-B0B6-464A-9D86-9D4422284928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49303F21-B0B6-464A-9D86-9D4422284928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49303F21-B0B6-464A-9D86-9D4422284928}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
