@@ -10,6 +10,28 @@ namespace Grades.Tests.Types
     [TestClass]
     public class ReferenceTypeTests
     {
+
+        [TestMethod]
+        public void StringComparisons()
+        {
+            string name1 = "Nate";
+            string name2 = "nate";
+
+            bool result = string.Equals(name1, name2, StringComparison.InvariantCultureIgnoreCase);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void IntVariablesHoldAValue()
+        {
+            int x1 = 100;
+            int x2 = x1;
+
+            x1 = 4;
+            Assert.AreNotEqual(x1, x2);
+
+        }
+
         [TestMethod]
         public void VariablesHoldAReference()
         {
