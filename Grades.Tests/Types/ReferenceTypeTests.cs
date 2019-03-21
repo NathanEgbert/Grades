@@ -8,8 +8,37 @@ using System.Threading.Tasks;
 namespace Grades.Tests.Types
 {
     [TestClass]
-    public class ReferenceTypeTests
+    public class TypeTests
     {
+
+        private void GiveBookAname(GradeBook book)
+        {
+            book.Name = "A Grade book";
+        }
+
+        private void IncrementNumber(int number)
+        {
+            number += 1;
+        }
+
+        [TestMethod]
+        public void ValueTypesPassByValue()
+        {
+            int x = 46;
+            IncrementNumber(x);
+            Assert.AreEqual(46, x);
+        }
+
+        [TestMethod]
+        public void ReferenceTypesPassByValue()
+        {
+            GradeBook book1 = new GradeBook();
+            GradeBook book2 = book1;
+
+            GiveBookAname(book2);
+            Assert.AreEqual("A Grade book", book1.Name);
+
+        }
 
         [TestMethod]
         public void StringComparisons()
