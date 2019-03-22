@@ -16,8 +16,8 @@ namespace Grades.Tests.Types
         {
             string name1 = "Nate";
             string name2 = "nate";
-            bool result = string.Equals(name1, name2, StringComparison.InvariantCultureIgnoreCase);
 
+            bool result = string.Equals(name1, name2, StringComparison.InvariantCultureIgnoreCase);
             Assert.IsTrue(result);
         }
 
@@ -28,21 +28,18 @@ namespace Grades.Tests.Types
             int x2 = x1;
 
             x1 = 4;
-
             Assert.AreNotEqual(x1, x2);
+
         }
 
         [TestMethod]
-        public void GradeBookVariablesHoldAReference()
+        public void VariablesHoldAReference()
         {
             GradeBook g1 = new GradeBook();
             GradeBook g2 = g1;
 
-            // creates a new object. 
-            g1 = new GradeBook();
-
             g1.Name = "Nate's grade book";
-            Assert.AreNotEqual(g1.Name, g2.Name);
+            Assert.AreEqual(g1.Name, g2.Name);
 
         }
     }
