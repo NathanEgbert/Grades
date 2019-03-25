@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grades;
+using System;
 using System.Collections.Generic;
 
 namespace Grades
@@ -10,6 +11,9 @@ namespace Grades
 
         //this is a field
         private string _name;
+
+        // this is a delegate
+        public NameChangedDelegate NameChanged;
 
         //this is a property
         public string Name
@@ -23,6 +27,10 @@ namespace Grades
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    if(_name != value)
+                    {
+                        NameChanged(_name, value);
+                    }
                     _name = value;
                 }
             }
@@ -32,6 +40,7 @@ namespace Grades
         public GradeBook()
         {
             grades = new List<float>();
+            _name = "Empty";
         }
 
         public void AddGrade(float grade)
