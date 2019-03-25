@@ -22,11 +22,6 @@ namespace Grades.Tests.Types
             Assert.AreEqual(89.1f, grades[1]);
         }
 
-        private void AddGrades(float[] grades)
-        {
-            grades[1] = 89.1f;
-        }
-
         [TestMethod]
         public void UppercaseString()
         {
@@ -43,16 +38,6 @@ namespace Grades.Tests.Types
              date = date.AddDays(1);
 
             Assert.AreEqual(2, date.Day);
-        }
-
-        private void GiveBookAname(GradeBook book)
-        {
-            book.Name = "A Grade book";
-        }
-
-        private void IncrementNumber(int number)
-        {
-            number += 1;
         }
 
         [TestMethod]
@@ -105,5 +90,21 @@ namespace Grades.Tests.Types
             Assert.AreEqual(g1.Name, g2.Name);
 
         }
+
+        private void GiveBookAname(GradeBook book)
+        {
+            book.Name = "A Grade book";
+        }
+
+        private void IncrementNumber(int number)
+        {
+            number += 1;
+        }
+
+        private void AddGrades(float[] grades)
+        {
+            grades[1] = 89.1f;
+        }
+
     }
 }
