@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Grades
 {
@@ -8,7 +7,26 @@ namespace Grades
     {
 
         private List<float> grades;
-        public string Name;
+
+        //this is a field
+        private string _name;
+
+        //this is a property
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _name = value;
+                }
+            }
+        }
 
         //constructor 
         public GradeBook()
