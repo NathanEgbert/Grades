@@ -12,8 +12,8 @@ namespace Grades
         //this is a field
         private string _name;
 
-        // this is a delegate
-        public NameChangedDelegate NameChanged;
+        //this is a delegate
+        public event NameChangedDelegate NameChanged;
 
         //this is a property
         public string Name
@@ -29,12 +29,13 @@ namespace Grades
                 {
                     if(_name != value)
                     {
+                        //delegate 
                         NameChanged(_name, value);
                     }
                     _name = value;
                 }
             }
-        }
+        }// property 
 
         //constructor 
         public GradeBook()
@@ -46,7 +47,7 @@ namespace Grades
         public void AddGrade(float grade)
         {
             grades.Add(grade);
-        }
+        }//end method
 
         public GradeStatistics ComputeStatistics()
         {
@@ -66,7 +67,7 @@ namespace Grades
 
             return stats;
 
-        }
+        }//end method
 
     }
 }

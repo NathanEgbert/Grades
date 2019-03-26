@@ -12,7 +12,14 @@ namespace Grades
         {
             GradeBook book1 = new GradeBook();
 
+            book1.NameChanged += OnNameChanged;
+            book1.NameChanged += OnNameChanged2;
+            book1.NameChanged += OnNameChanged2;
+            book1.NameChanged -= OnNameChanged2;
+            
+
             book1.Name = "Nate's Gradebook";
+            book1.Name = "Nate's Gradebook again";
             book1.Name = null;
 
             book1.AddGrade(91);
@@ -31,11 +38,21 @@ namespace Grades
         static void WriteResults(string description, int result)
         {
             Console.WriteLine(description + ": " + result);
-        }
+        }// end method
 
         static void WriteResults(string description, float result)
         {
             Console.WriteLine("{0}: {1}", description, result);
+        }//end method
+
+        static void OnNameChanged(string existingnName, string newName)
+        {
+            Console.WriteLine($"Grade book changing name from {existingnName} to {newName}");
+        }
+
+        static void OnNameChanged2(string existingnName, string newName)
+        {
+            Console.WriteLine("***");
         }
     }
 }
