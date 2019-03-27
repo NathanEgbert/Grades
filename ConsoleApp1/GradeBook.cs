@@ -1,18 +1,25 @@
-﻿using Grades;
+﻿using ConsoleApp1;
+using Grades;
 using System;
 using System.Collections.Generic;
 
 namespace Grades
 {
-   public class GradeBook
+
+    public class GradeBook
     {
 
         private List<float> grades;
 
+        public GradeStatistics statistics;
+
         //this is a field
         private string _name;
 
-        //this is a delegate
+        //this is a delegate. A variable that points to a method.
+        //public NameChangedDelegate NameChanged;
+
+        //event
         public event NameChangedDelegate NameChanged;
 
         //this is a property
@@ -29,8 +36,14 @@ namespace Grades
                 {
                     if(_name != value)
                     {
+
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.NewName = value;
+                        args.ExistingName = _name;
+
+
                         //delegate 
-                        NameChanged(_name, value);
+                        NameChanged(this, args);
                     }
                     _name = value;
                 }

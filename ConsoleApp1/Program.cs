@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,15 @@ namespace Grades
         {
             GradeBook book1 = new GradeBook();
 
+            //the += adds multiple methods to the delegate. Do not have to use the new NameChangedDelegate()
             book1.NameChanged += OnNameChanged;
-            book1.NameChanged += OnNameChanged2;
-            book1.NameChanged += OnNameChanged2;
-            book1.NameChanged -= OnNameChanged2;
-            
+           
+            //cannot use assignment with events.
+            //book1.NameChanged = null;
 
-            book1.Name = "Nate's Gradebook";
-            book1.Name = "Nate's Gradebook again";
-            book1.Name = null;
+            book1.Name = "Nate's Grade book";
+            book1.Name = "Grade book ";
+            
 
             book1.AddGrade(91);
             book1.AddGrade(89.5f);
@@ -28,7 +29,7 @@ namespace Grades
 
             GradeStatistics stats = book1.ComputeStatistics();
 
-            Console.WriteLine(book1.Name);
+           
             WriteResults("Average", stats.AverageGrade);
             WriteResults("Highest", (int)stats.HighestGrade);
             WriteResults("Lowest", stats.LowestGrade);
@@ -38,21 +39,18 @@ namespace Grades
         static void WriteResults(string description, int result)
         {
             Console.WriteLine(description + ": " + result);
-        }// end method
+        }
 
         static void WriteResults(string description, float result)
         {
             Console.WriteLine("{0}: {1}", description, result);
-        }//end method
-
-        static void OnNameChanged(string existingnName, string newName)
-        {
-            Console.WriteLine($"Grade book changing name from {existingnName} to {newName}");
         }
 
-        static void OnNameChanged2(string existingnName, string newName)
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine("***");
+            Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}");
         }
+
+      
     }
 }
