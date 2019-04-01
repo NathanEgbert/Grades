@@ -13,6 +13,7 @@ namespace Grades
         {
             GradeBook book1 = new GradeBook();
 
+            /*
             //the += adds multiple methods to the delegate. Do not have to use the new NameChangedDelegate()
             book1.NameChanged += OnNameChanged;
            
@@ -21,7 +22,7 @@ namespace Grades
 
             book1.Name = "Nate's Grade book";
             book1.Name = "Grade book ";
-            
+            */
 
             book1.AddGrade(91);
             book1.AddGrade(89.5f);
@@ -31,12 +32,20 @@ namespace Grades
 
            
             WriteResults("Average", stats.AverageGrade);
-            WriteResults("Highest", (int)stats.HighestGrade);
+            WriteResults("Highest", stats.HighestGrade);
             WriteResults("Lowest", stats.LowestGrade);
+            WriteResults("Grade", stats.LetterGrade);
 
         }
 
+        /*
         static void WriteResults(string description, int result)
+        {
+            Console.WriteLine(description + ": " + result);
+        }
+        */
+
+        static void WriteResults(string description, string result)
         {
             Console.WriteLine(description + ": " + result);
         }
