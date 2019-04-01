@@ -34,7 +34,7 @@ namespace Grades
             WriteResults("Average", stats.AverageGrade);
             WriteResults("Highest", stats.HighestGrade);
             WriteResults("Lowest", stats.LowestGrade);
-            WriteResults("Grade", stats.LetterGrade);
+            WriteResults(stats.Description, stats.LetterGrade);
 
         }
 

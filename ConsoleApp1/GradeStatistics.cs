@@ -40,6 +40,35 @@ namespace Grades
             }
         }
 
+        public string Description
+        {
+            get
+            {
+                string result;
+                switch (LetterGrade)
+                {
+                    case "A":
+                        result = "Excelent";
+                            break;
+                    case "B":
+                        result = "Good";
+                        break;
+                    case "C":
+                        result = "Average";
+                        break;
+                    case "D":
+                        result = "Below Average";
+                        break;
+                    default:
+                        result = "Failing";
+                        break;
+                }
+                return result;
+
+            }
+        }
+
+
         public GradeStatistics()
         {
             HighestGrade = 0;
