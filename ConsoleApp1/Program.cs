@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,18 +25,52 @@ namespace Grades
             book1.Name = "Grade book ";
             */
 
-            book1.AddGrade(91);
-            book1.AddGrade(89.5f);
-            book1.AddGrade(75);
+           // GetBookName(book1);
+            AddGrades(book1);
+            SaveGrades(book1);
+            WriteResults(book1);
 
+        }
+
+        private static void WriteResults(GradeBook book1)
+        {
             GradeStatistics stats = book1.ComputeStatistics();
-
-           
             WriteResults("Average", stats.AverageGrade);
             WriteResults("Highest", stats.HighestGrade);
             WriteResults("Lowest", stats.LowestGrade);
             WriteResults(stats.Description, stats.LetterGrade);
+        }
 
+        private static void SaveGrades(GradeBook book1)
+        {
+            using (StreamWriter outputFile = File.CreateText("Grades.txt"))
+            {
+                book1.WriteGrades(outputFile);
+            }
+        }
+
+        private static void AddGrades(GradeBook book1)
+        {
+            book1.AddGrade(91);
+            book1.AddGrade(89.5f);
+            book1.AddGrade(75);
+        }
+
+        private static void GetBookName(GradeBook book1)
+        {
+            try
+            {
+                Console.WriteLine("Enter a Name: ");
+                book1.Name = Console.ReadLine();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine(ex + "Something went wrong!");
+            }
         }
 
         /*
@@ -60,6 +95,6 @@ namespace Grades
             Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}");
         }
 
-      
+
     }
 }

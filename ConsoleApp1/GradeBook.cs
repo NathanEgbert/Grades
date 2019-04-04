@@ -2,6 +2,7 @@
 using Grades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Grades
 {
@@ -9,7 +10,7 @@ namespace Grades
     public class GradeBook
     {
 
-        private List<float> grades;
+        protected List<float> grades;
 
         public GradeStatistics statistics;
 
@@ -32,21 +33,23 @@ namespace Grades
 
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
-                    if(_name != value)
-                    {
-
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.NewName = value;
-                        args.ExistingName = _name;
-
-
-                        //delegate 
-                        NameChanged(this, args);
-                    }
-                    _name = value;
+                    throw new ArgumentException("Name cannot be null or empty!");
                 }
+
+                    if (_name != value)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.NewName = value;
+                    args.ExistingName = _name;
+
+
+                    //delegate 
+                    NameChanged(this, args);
+                }
+                _name = value;
+
             }
         }// property 
 
@@ -55,6 +58,14 @@ namespace Grades
         {
             grades = new List<float>();
             _name = "Empty";
+        }
+
+        public void WriteGrades(TextWriter destination)
+        {
+            for (int i = grades.Count; i > 0; i--)
+            {
+                destination.WriteLine(grades[i - 1]);
+            }
         }
 
         public void AddGrade(float grade)
@@ -69,7 +80,7 @@ namespace Grades
 
             float sum = 0;
 
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
                 stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
