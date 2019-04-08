@@ -10,8 +10,9 @@ namespace ConsoleApp1
     class ThrowAwayGradeBook : GradeBook
     {
 
-        public GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics()
         {
+            Console.WriteLine("Inside of throwaway Gradebook");
             float lowest = float.MaxValue;
             foreach(float grade in grades)
             {

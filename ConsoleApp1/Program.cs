@@ -12,7 +12,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book1 = new GradeBook();
+            GradeBook book1 = new ThrowAwayGradeBook();
 
             /*
             //the += adds multiple methods to the delegate. Do not have to use the new NameChangedDelegate()
@@ -25,7 +25,7 @@ namespace Grades
             book1.Name = "Grade book ";
             */
 
-           // GetBookName(book1);
+            //GetBookName(book1);
             AddGrades(book1);
             SaveGrades(book1);
             WriteResults(book1);

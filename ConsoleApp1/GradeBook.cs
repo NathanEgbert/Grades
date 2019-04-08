@@ -73,9 +73,9 @@ namespace Grades
             grades.Add(grade);
         }//end method
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
-
+            Console.WriteLine("Inside of GradeBook");
             GradeStatistics stats = new GradeStatistics();
 
             float sum = 0;
