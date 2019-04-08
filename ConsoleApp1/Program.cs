@@ -34,11 +34,20 @@ namespace Grades
 
         private static void WriteResults(GradeBook book1)
         {
-            GradeStatistics stats = book1.ComputeStatistics();
-            WriteResults("Average", stats.AverageGrade);
-            WriteResults("Highest", stats.HighestGrade);
-            WriteResults("Lowest", stats.LowestGrade);
-            WriteResults(stats.Description, stats.LetterGrade);
+            try
+            {
+                GradeStatistics stats = book1.ComputeStatistics();
+                WriteResults("Average", stats.AverageGrade);
+                WriteResults("Highest", stats.HighestGrade);
+                WriteResults("Lowest", stats.LowestGrade);
+                WriteResults(stats.Description, stats.LetterGrade);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+           
         }
 
         private static void SaveGrades(GradeBook book1)

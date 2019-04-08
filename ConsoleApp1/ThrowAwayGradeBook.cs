@@ -12,9 +12,9 @@ namespace ConsoleApp1
 
         public override GradeStatistics ComputeStatistics()
         {
-            Console.WriteLine("Inside of throwaway Gradebook");
+            Console.WriteLine("Inside of ThrowAwayGradeBook");
             float lowest = float.MaxValue;
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
                 lowest = Math.Min(grade, lowest);
             }
