@@ -7,51 +7,13 @@ using System.IO;
 namespace Grades
 {
 
-    public class GradeBook
+    public class GradeBook : GradeTracker
     {
 
         protected List<float> grades;
 
         public GradeStatistics statistics;
 
-        //this is a field
-        private string _name;
-
-        //this is a delegate. A variable that points to a method.
-        //public NameChangedDelegate NameChanged;
-
-        //event
-        public event NameChangedDelegate NameChanged;
-
-        //this is a property
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Name cannot be null or empty!");
-                }
-
-                    if (_name != value)
-                {
-                    NameChangedEventArgs args = new NameChangedEventArgs();
-                    args.NewName = value;
-                    args.ExistingName = _name;
-
-
-                    //delegate 
-                    NameChanged(this, args);
-                }
-                _name = value;
-
-            }
-        }// property 
 
         //constructor 
         public GradeBook()
@@ -60,7 +22,7 @@ namespace Grades
             _name = "Empty";
         }
 
-        public void WriteGrades(TextWriter destination)
+        public override void WriteGrades(TextWriter destination)
         {
             for (int i = grades.Count; i > 0; i--)
             {
@@ -68,12 +30,12 @@ namespace Grades
             }
         }
 
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             grades.Add(grade);
         }//end method
 
-        public virtual GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics()
         {
             Console.WriteLine("Inside of GradeBook");
             GradeStatistics stats = new GradeStatistics();

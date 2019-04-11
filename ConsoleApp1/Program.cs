@@ -12,8 +12,8 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book1 = new ThrowAwayGradeBook();
-
+            GradeTracker book1 = CreateGradeBook();
+                
             /*
             //the += adds multiple methods to the delegate. Do not have to use the new NameChangedDelegate()
             book1.NameChanged += OnNameChanged;
@@ -32,7 +32,12 @@ namespace Grades
 
         }
 
-        private static void WriteResults(GradeBook book1)
+        private static GradeBook CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook();
+        }
+
+        private static void WriteResults(GradeTracker book1)
         {
             try
             {
@@ -50,7 +55,7 @@ namespace Grades
            
         }
 
-        private static void SaveGrades(GradeBook book1)
+        private static void SaveGrades(GradeTracker book1)
         {
             using (StreamWriter outputFile = File.CreateText("Grades.txt"))
             {
@@ -58,14 +63,14 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(GradeBook book1)
+        private static void AddGrades(GradeTracker book1)
         {
             book1.AddGrade(91);
             book1.AddGrade(89.5f);
             book1.AddGrade(75);
         }
 
-        private static void GetBookName(GradeBook book1)
+        private static void GetBookName(GradeTracker book1)
         {
             try
             {
