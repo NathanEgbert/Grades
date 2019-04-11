@@ -46,7 +46,6 @@ namespace ConsoleApp1
                     args.NewName = value;
                     args.ExistingName = _name;
 
-
                     //delegate 
                     NameChanged(this, args);
                 }

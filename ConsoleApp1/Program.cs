@@ -14,18 +14,18 @@ namespace Grades
         {
             GradeTracker book1 = CreateGradeBook();
                 
-            /*
+            
             //the += adds multiple methods to the delegate. Do not have to use the new NameChangedDelegate()
             book1.NameChanged += OnNameChanged;
            
             //cannot use assignment with events.
             //book1.NameChanged = null;
 
-            book1.Name = "Nate's Grade book";
-            book1.Name = "Grade book ";
-            */
+            //book1.Name = "Nate's Grade book";
+            //book1.Name = "Grade book ";
+            
 
-            //GetBookName(book1);
+            GetBookName(book1);
             AddGrades(book1);
             SaveGrades(book1);
             WriteResults(book1);
