@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public abstract class GradeTracker
+    public abstract class GradeTracker : IGradeTracker
     {
         public abstract void AddGrade(float grade);
 
