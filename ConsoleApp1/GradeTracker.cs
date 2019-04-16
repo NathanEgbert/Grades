@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ConsoleApp1
 {
@@ -15,6 +16,8 @@ namespace ConsoleApp1
         public abstract GradeStatistics ComputeStatistics();
 
         public abstract void WriteGrades(TextWriter destination);
+
+        public abstract IEnumerator GetEnumerator();
 
         //this is a field
         protected string _name;

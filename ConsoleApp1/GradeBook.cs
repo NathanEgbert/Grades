@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1;
 using Grades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -54,6 +55,11 @@ namespace Grades
             return stats;
 
         }//end method
+
+        public override IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
+        }
 
     }
 }
